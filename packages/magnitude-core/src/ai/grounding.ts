@@ -35,13 +35,14 @@ export interface GroundingServiceInfo {
 }
 
 export const moondreamTargetingInstructions = `
-Targets descriptions must be carefully chosen to be accurately picked up by Moondream, a small vision model.
-Build a "minimal unique identifier" - a description that is as brief as possible that uniquely identifies the target on the page.
-Use only the information needed, and prioritize in this order:
-- specific text
-- specific shapes and colors
-- positional information
-- high level information (Moondream cannot always understand high level concepts)
+Target descriptions must be carefully chosen to be accurately picked up by Moondream, a small vision model.
+When the user provides detailed descriptions for targeting (like "the grey login button below the two input fields"), preserve these details as they help Moondream locate the correct element among similar ones.
+Create effective target descriptions that prioritize in this order:
+- specific text content on or near the element
+- descriptive visual characteristics (colors, shapes, size)
+- spatial relationships and positioning details
+- contextual information that helps distinguish from similar elements
+While keeping descriptions clear and focused, include sufficient detail when multiple similar elements exist on the page.
 `;
 
 export class GroundingService {

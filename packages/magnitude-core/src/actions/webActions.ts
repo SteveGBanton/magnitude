@@ -9,7 +9,7 @@ export const clickTargetAction = createAction({
     name: 'mouse:click',
     description: "Click something",
     schema: z.object({
-        target: z.string().describe("Where exactly to click"),
+        target: z.string().describe("Where exactly to click - preserve any descriptive details provided by the user (colors, positions, context) to help distinguish between similar elements"),
     }),
     resolver: async ({ input: { target }, agent }) => {
         const web = agent.require(BrowserConnector);
@@ -43,7 +43,7 @@ export const scrollTargetAction = createAction({
     name: 'mouse:scroll',
     description: "Hover mouse over target and scroll",
     schema: z.object({
-        target: z.string().describe("Somewhere specific inside the container to scroll in"),
+        target: z.string().describe("Somewhere specific inside the container to scroll in - preserve any descriptive details provided by the user to help locate the correct scrollable area"),
         deltaX: z.number().int().describe("Pixels to scroll horizontally"),
         deltaY: z.number().int().describe("Pixels to scroll vertically"),
     }),

@@ -1,5 +1,6 @@
 {
   "name": "magnitude",
+  "version": "0.2.20-fork",
   "scripts": {
     "build": "turbo run build",
     "dev": "turbo run dev",
